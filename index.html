@@ -184,7 +184,21 @@
   </section>
 
 
+  <section class="calc">
+    <h2>Calculate how much you’ll pay</h2>
 
+    <div class="calc__columns">
+      <form class="calc__form">
+        <div class="calc__input">
+          <input type="number" class="form__input" id="products" min="1" step="1" placeholder="Products quantity"/>
+        </div>
+        <div class="calc__input">
+          <input type="number" class="form__input" id="orders" min="1" step="1" placeholder="Estimated orders in month"/>
+        </div>
+        <div class="calc__select" id="package" data-value="">
+          <div class="select__input">
+            Choose package
+          </div>
 
           <ul class="select__dropdown">
             <li data-value="basic">Basic</li>
