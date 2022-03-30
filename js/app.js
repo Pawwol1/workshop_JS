@@ -1,4 +1,4 @@
-function Calculator(form, summary) {
+function PriceCalc(form, summary) {
   this.prices = {
     products: 0.5,
     orders: 0.25,
@@ -11,9 +11,6 @@ function Calculator(form, summary) {
     terminal: 5
   };
 
-  /**
-   * Inputs / Select / Checkbox
-   */
   this.form = {
     products: form.querySelector("#products"),
     orders: form.querySelector("#orders"),
@@ -22,9 +19,6 @@ function Calculator(form, summary) {
     terminal: form.querySelector("#terminal")
   };
 
-  /**
-   * Summary elements
-   */
   this.summary = {
     list: summary.querySelector("ul"),
     items: summary.querySelector("ul").children,
@@ -33,28 +27,23 @@ function Calculator(form, summary) {
       price: summary.querySelector(".total__price")
     }
   };
-
-
-  // Init
+  // Calc init
   this.addEvents();
 }
 
-Calculator.prototype.addEvents = function () {
-  // Inputs
+PriceCalc.prototype.addEvents = function () {
   this.form.products.addEventListener("change", this.inputEvent.bind(this));
   this.form.products.addEventListener("keyup", this.inputEvent.bind(this));
   this.form.orders.addEventListener("change", this.inputEvent.bind(this));
   this.form.orders.addEventListener("keyup", this.inputEvent.bind(this));
 
-  // Select
   this.form.package.addEventListener("click", this.selectEvent.bind(this));
 
-  // Checkboxes
   this.form.accounting.addEventListener("change", this.checkboxEvent.bind(this));
   this.form.terminal.addEventListener("change", this.checkboxEvent.bind(this));
 };
 
-Calculator.prototype.updateTotal = function () {
+PriceCalc.prototype.updateTotal = function () {
   const show = this.summary.list.querySelectorAll(".open").length > 0;
 
   if (show) {
@@ -72,7 +61,7 @@ Calculator.prototype.updateTotal = function () {
   }
 };
 
-Calculator.prototype.updateSummary = function (id, calc, total, callback) {
+PriceCalc.prototype.updateSummary = function (id, calc, total, callback) {
   const summary = this.summary.list.querySelector("[data-id=" + id + "]");
   const summaryCalc = summary.querySelector(".item__calc");
   const summaryTotal = summary.querySelector(".item__price");
@@ -90,7 +79,7 @@ Calculator.prototype.updateSummary = function (id, calc, total, callback) {
   }
 };
 
-Calculator.prototype.inputEvent = function (e) {
+PriceCalc.prototype.inputEvent = function (e) {
   const id = e.currentTarget.id;
   const value = e.currentTarget.value;
   const singlePrice = this.prices[id];
@@ -111,7 +100,7 @@ Calculator.prototype.inputEvent = function (e) {
 };
 
 
-Calculator.prototype.selectEvent = function (e) {
+PriceCalc.prototype.selectEvent = function (e) {
   this.form.package.classList.toggle("open");
 
   const value = typeof e.target.dataset.value !== "undefined" ? e.target.dataset.value : "";
@@ -126,7 +115,7 @@ Calculator.prototype.selectEvent = function (e) {
   }
 };
 
-Calculator.prototype.checkboxEvent = function (e) {
+PriceCalc.prototype.checkboxEvent = function (e) {
   const checkbox = e.currentTarget;
   const id = checkbox.id;
   const checked = e.currentTarget.checked;
@@ -145,5 +134,5 @@ document.addEventListener("DOMContentLoaded", function () {
   const form = document.querySelector(".calc__form");
   const summary = document.querySelector(".calc__summary");
 
-  new Calculator(form, summary);
+  new PriceCalc(form, summary);
 });

@@ -598,7 +598,7 @@ h2 {
   overflow: hidden;
 }
 .opening__content {
-  margin-top: 130px;
+  margin-top: 100px;
   text-align: center;
 }
 @media (max-width: 792px) {
@@ -638,7 +638,7 @@ h2 {
 }
 
 .statistics {
-  margin-top: 100px;
+  padding-top: 200px;
 }
 @media (max-width: 792px) {
   .statistics {
@@ -933,6 +933,7 @@ h2 {
 }
 
 .pricing {
+  padding: 100px 0;
   margin: 100px auto;
   display: flex;
   flex-direction: column;
@@ -1244,12 +1245,10 @@ h2 {
   margin-right: 25px;
 }
 
-/**
- * Calculator Section
- */
 .calc {
-  padding: 80px 0;
+  padding: 120px 0;
   background-color: #F7F7F7;
+  margin: 100px 0;
 }
 @media (max-width: 1024px) {
   .calc {
@@ -1287,20 +1286,14 @@ h2 {
   padding: 11px 20px;
   line-height: 1em;
   font-size: 0.8125rem;
-  box-shadow: 0px 3px 6px rgba(7, 172, 230, 0.16);
+  box-shadow: 0 3px 6px rgba(7, 172, 230, 0.16);
   margin-bottom: 20px;
   background-color: #ffffff;
-}
-.calc__input input::-webkit-input-placeholder {
-  color: #A5A5A5;
 }
 .calc__input input::-moz-placeholder {
   color: #A5A5A5;
 }
 .calc__input input:-ms-input-placeholder {
-  color: #A5A5A5;
-}
-.calc__input input::-ms-input-placeholder {
   color: #A5A5A5;
 }
 .calc__input input::placeholder {
@@ -1368,7 +1361,7 @@ h2 {
 }
 .calc__summary .summary__total,
 .calc__summary .list__item {
-  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
   border-radius: 6px;
   justify-content: space-between;
   align-items: center;
